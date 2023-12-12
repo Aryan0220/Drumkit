@@ -8,7 +8,11 @@ document.addEventListener("keypress", function(event){
 for(var i = 0; i < document.querySelectorAll(".drum").length; i++){
     document.querySelectorAll(".drum")[i].addEventListener("click", function(){
         var button = this.innerHTML;
+        document.querySelector("." + button).classList.add("pressed");
         music(button);
+        setTimeout(function(){
+        document.querySelector("." + button).classList.remove("pressed");
+        },100);
     });
 }
 function music(button){
@@ -45,4 +49,4 @@ function music(button){
             console.log("Ahhhh!");
             break; 
     }
-}
+} 
